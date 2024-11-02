@@ -1,0 +1,3 @@
+dominio.Snack {idSnack=1, nombre='Papas', precio=70.0}
+dominio.Snack {idSnack=2, nombre='Refresco', precio=50.0}
+dominio.Snack {idSnack=3, nombre='Sandwich', precio=120.0}

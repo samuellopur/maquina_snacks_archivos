@@ -2,6 +2,7 @@ package presentacion;
 
 import dominio.Snack;
 import servicio.ServicioSnacks;
+import servicio.ServicioSnacksArchivos;
 import servicio.ServicioSnacksLista;
 
 import java.util.ArrayList;
@@ -18,8 +19,9 @@ public class MaquinaSnacks {
         var consola = new Scanner(System.in);
 
 //        Se crea el objeto para obtener el servicio de snacks (lista)
-        ServicioSnacks servicioSnacks = new ServicioSnacksLista();
+//        ServicioSnacks servicioSnacks = new ServicioSnacksLista();
 
+        ServicioSnacks servicioSnacks = new ServicioSnacksArchivos();
 //        Se crea la lista de productos de tipo snack
         List<Snack> productos = new ArrayList<>();
         System.out.println("""
