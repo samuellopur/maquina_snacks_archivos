@@ -62,7 +62,7 @@ public class ServicioSnacksArchivos implements ServicioSnacks{
             anexar = archivo.exists();
             var salida = new PrintWriter(new FileWriter(archivo, anexar));
 //            Graba información en la memoria
-            salida.println(snack);
+            salida.println(snack.escribirSnack());
 //            Graba información en el archivo
             salida.close();
         }catch (Exception e){
