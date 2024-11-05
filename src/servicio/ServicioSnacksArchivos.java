@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +57,8 @@ public class ServicioSnacksArchivos implements ServicioSnacks{
                 var idSnack = lineaSnack[0]; //No se usa
                 var nombre = lineaSnack[1];
                 var precio = Double.parseDouble(lineaSnack[2]);
-                var snack = new Snack(); //Agregamos el snack vacio a la lista
+                var snack = new Snack(nombre, precio);
+                snacks.add(snack); //Agregamos el snack vacio a la lista
             }
         }catch (Exception e){
             System.out.println("Error al leer archivo de snacks: " + e.getMessage());
@@ -93,11 +93,20 @@ public class ServicioSnacksArchivos implements ServicioSnacks{
 
     @Override
     public void mostrarSnacks() {
-
+        System.out.println("""
+                -------------------------------
+                *** Snacks en el inventario ***
+                -------------------------------""");
+//        Mostrar la lista de snacks en el archivo
+        var inventarioSnacks = "";
+        for (var snack: this.snacks) {
+            inventarioSnacks += snack.toString() + "\n";
+        }
+        System.out.println(inventarioSnacks);
     }
 
     @Override
     public List<Snack> getSnacks() {
-        return null;
+        return this.snacks;
     }
 }

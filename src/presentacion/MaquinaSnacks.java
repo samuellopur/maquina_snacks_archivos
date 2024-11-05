@@ -48,7 +48,8 @@ public class MaquinaSnacks {
                 1. Comprar snack
                 2. Mostrar ticket
                 3. Agregar nuevo snack
-                4. Salir
+                4. Inventario snacks
+                5. Salir
                 Selecciona una opción: \s
                 *************************""");
 //        Se lee y retorna la opcion seleccionada
@@ -61,7 +62,8 @@ public class MaquinaSnacks {
             case 1 -> comprarSnack(consola, productos, servicioSnacks);
             case 2 -> mostrarTicket(productos);
             case 3 -> agregarSnack(consola, servicioSnacks);
-            case 4 -> {
+            case 4 -> listarInventarioSnacks(consola, servicioSnacks);
+            case 5 -> {
                 System.out.println("Regresa pronto!");
                 salir = true;
             }
@@ -80,7 +82,7 @@ public class MaquinaSnacks {
             if (idsnack == snack.getIdSnack()) {
 //            Se agrega el snack a la lista de productos
                 productos.add(snack);
-                System.out.println("dominio.Snack agregado: " + snack);
+                System.out.println("Snack agregado exitosamente: " + snack);
                 snackEncontrado = true;
                 break;
             }
@@ -110,7 +112,11 @@ public class MaquinaSnacks {
         System.out.print("Precio del snack: ");
         var precio = Double.parseDouble(consola.nextLine());
         servicioSnacks.agregarSnack(new Snack(nombre, precio));
-        System.out.println("dominio.Snack agregado exitosamente");
+        System.out.println("Tu snack se ha agregado exitosamente");
+        servicioSnacks.mostrarSnacks();
+    }
+
+    private static void listarInventarioSnacks(Scanner consola, ServicioSnacks servicioSnacks){
         servicioSnacks.mostrarSnacks();
     }
 }
